@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Item = ({stock , initial}) => {
+export const ItemCount = ({stock , initial}) => {
 
     const [quantity, setQuantity] = useState(initial);
 
@@ -38,5 +38,3 @@ const Item = ({stock , initial}) => {
         
     </div>
 };
-
-export default Item;
