@@ -33,8 +33,8 @@ export const ItemCount = ({stock , initial}) => {
         <span>{quantity}</span>
         <button onClick={sumCount}>+</button>
         <br/>
-        <button onClick={onAdd}>Agregar al carrito!</button><br/>
-        <span id="selectedQuantity"></span>
+        
+        
         
     </div>
 };
