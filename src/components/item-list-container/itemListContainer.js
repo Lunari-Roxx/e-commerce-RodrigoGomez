@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { productsAPI } from "../../helpers/PromiseAPI";
 import { Item } from "../items/Item";
 
@@ -12,6 +13,10 @@ function ItemListContainer() {
 
   const [products, setProducts] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
+  const {id} = useParams();
+  console.log({id})
+
+  const filterProducts = products.filter(({category}) => category === id);
 
   useEffect(() => {
     getProducts();
@@ -32,12 +37,22 @@ function ItemListContainer() {
     <p>{selectedItem ? selectedItem.title : "ninguno"}</p>
     <p>{selectedItem ? selectedItem.price : "ninguno"}</p>
     
-    {products.map((product) => {
+    {!id && products.map((product) => {
       return <Item key={product.id}
                        {...product}
                        setSelectedItem={setSelectedItem}
       />
     })}
+
+{id && filterProducts.map((product) => {
+      return <Item key={product.id}
+                       {...product}
+                       setSelectedItem={setSelectedItem}
+      />
+    })}
+    
+
+
   </div>
 }
 ;

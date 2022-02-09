@@ -1,4 +1,5 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link , NavLink } from "react-router-dom";
 import CartIcon from "../icon/CartIcon";
 
 
@@ -8,13 +9,26 @@ const NavBar = () => {
     return (
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">Roxx Commerce</Navbar.Brand>
+          <Navbar.Brand href="#home"><Link to="/">Roxx Commerce</Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">Inicio</Nav.Link>
-              <Nav.Link href="#link">Acerca de</Nav.Link>
-              <Nav.Link href="#link">Contacto</Nav.Link>
+              <Nav.Link >Inicio</Nav.Link>
+              <Nav.Link >
+                <NavLink to={"category/alcohol"}>
+                Bebidas Alcohólicas
+                </NavLink>
+              </Nav.Link>
+              <Nav.Link >
+                <NavLink to={"category/soft-drink"}>
+                  Refrescos
+                </NavLink>
+              </Nav.Link>
+              <Nav.Link >
+                <NavLink to={"category/energy-drink"}>
+                Bebidas Energéticas
+                </NavLink>
+              </Nav.Link>
               
             </Nav>
           </Navbar.Collapse>
