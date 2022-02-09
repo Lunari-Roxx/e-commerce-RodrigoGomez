@@ -20,5 +20,6 @@ categorías.
 El routeo para seleccionar el producto actualmente está definido, actualmente no está funcionando ya que 
 tengo un error en ItemDetailContainer.js que no eh podido solucionar, el DetailContainer.js ya está 
 definido para usarlo cuando lo arregle. 
+aplicacion.gif muestra actualmente la pagina.
 
 
