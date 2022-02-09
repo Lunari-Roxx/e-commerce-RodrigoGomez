@@ -1,4 +1,3 @@
-import { product } from "../data/product";
 
 
 
@@ -19,9 +18,4 @@ export const productsAPI = new Promise((resolve, reject) =>{
 })
 
 
-export const item = new Promise((resolve, reject) =>{
-    setTimeout(() => {
-        resolve(product);
-    }, 2000);
-})
 
