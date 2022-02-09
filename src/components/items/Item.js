@@ -1,11 +1,10 @@
+import { Link } from "react-router-dom";
 import {ItemCount} from "./ItemCount";
 
 //props id,title,price,pictureURL, stock
-export const Item = ({title,price,pictureURL,stock , setSelectedItem}) => {
+export const Item = ({title,price,pictureURL,stock , id}) => {
 
-    const selectItem = () => {
-        setSelectedItem({title,price,pictureURL,setSelectedItem})
-    }
+    
 
     return(
         
@@ -15,7 +14,7 @@ export const Item = ({title,price,pictureURL,stock , setSelectedItem}) => {
                 <h2>Precio : {price}</h2>
                 <img src={pictureURL} width="300px" alt="Imagen del producto"/>
                 <ItemCount stock={stock} initial = {0} />
-                <button onClick={selectItem}>Seleccionar producto</button>
+                <Link to={`/item/${id}`}>Seleccionar producto</Link>
                 <hr/>
             </div>
         </>

@@ -1,37 +1,33 @@
 import { useEffect, useState } from "react";
-import { item } from "../../helpers/PromiseAPI";
-import { ItemDetail } from "./ItemDetail";
+import { useParams } from "react-router-dom";
+import useProducts from "../../hooks/useProducts";
+import { ItemDetail } from "./ItemDetail"; // lo voy a utilizar cuando repare el error de SelectedItem
 
 
 
 
  const ItemDetailContainer = () => {
 
-    const [detail, setDetail] = useState([]);
-
+    const {products} = useProducts();
+    const {id} = useParams();
+    const [selectedItem, setSelectedItem] = useState(null);
+    
     useEffect(() => {
-      
-        getItem();
-      
-    }, []);
-
-    const getItem = async () => {
-        try {
-            const result = await item;
-            setDetail(result);
-            console.log(detail);
-            console.log(result)
-            
-        } catch (error) {
-            console.log({error})
-        }
-    }
+      if(products.length  > 0){
+        const selectedProduct = products.find((product) => product.id === id);
+        setSelectedItem(selectedProduct);
+        
+      }
+    }, [products])
+    
+    
     
 
     return(
         <>
-        
-        <ItemDetail key={detail.id} {...detail}/>
+        <h1>aca va el detalle</h1>
+
+        {/*<ItemDetail key={selectedItem.id} {...selectedItem}/>*/}
         </>
         
         
